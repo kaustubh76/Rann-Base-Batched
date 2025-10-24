@@ -14,9 +14,11 @@ docs/
 .env
 .env.local
 .env*.local
+!.env.local.example
 frontend/.env
 frontend/.env.local
 frontend/.env*.local
+!frontend/.env.local.example
 
 # Node modules
 node_modules/
