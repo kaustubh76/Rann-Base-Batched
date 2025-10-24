@@ -5,6 +5,8 @@
 ### Live Demo
 🎮 **Play Now**: https://rann-blue.vercel.app/
 
+> **Note**: The live demo is fully configured and ready to test on Base Sepolia!
+
 ### Deployed Contracts (All Verified)
 - **RannToken**: [0xdff6c8409fae4253e207df8d2d0de0eaf79674e5](https://sepolia.basescan.org/address/0xdff6c8409fae4253e207df8d2d0de0eaf79674e5)
 - **YodhaNFT**: [0xccce492f07c866b4f8b0fba1e0a5f102c8a92a68](https://sepolia.basescan.org/address/0xccce492f07c866b4f8b0fba1e0a5f102c8a92a68)
