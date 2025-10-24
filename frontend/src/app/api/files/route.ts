@@ -4,25 +4,30 @@ import { pinata } from "@/utils/config"
 export async function POST(request: NextRequest) {
   try {
     const data = await request.formData();
-    const file: File | null = data.get("file") as unknown as File;
-    
+    const file = data.get("file");
+
     // Get form data for JSON metadata
     const name = data.get("name") as string;
     const bio = data.get("bio") as string;
     const life_history = data.get("life_history") as string;
     const adjectives = data.get("adjectives") as string;
     const knowledge_areas = data.get("knowledge_areas") as string;
-    
-    if (!file) {
+
+    if (!file || !(file instanceof Blob)) {
       return NextResponse.json({ error: "No file received" }, { status: 400 });
     }
 
-    console.log("Uploading file to Pinata:", file.name, "(" + (file.size / 1024 / 1024).toFixed(2) + " MB)");
-    
+    // Convert to File object for Pinata
+    const fileName = (file as any).name || "uploaded-image.jpg";
+    const fileSize = file.size;
+
+    console.log("Uploading file to Pinata:", fileName, "(" + (fileSize / 1024 / 1024).toFixed(2) + " MB)");
+
     // Step 1: Upload image to Pinata IPFS
-    const { cid: imageCid } = await pinata.upload.public.file(file);
+    const uploadResult = await pinata.upload.file(file);
+    const imageCid = uploadResult.IpfsHash;
     console.log("Image uploaded successfully. CID:", imageCid);
-    
+
     // Step 2: Create JSON metadata
     const metadata = {
       name: name || "Unknown Warrior",
@@ -32,16 +37,18 @@ export async function POST(request: NextRequest) {
       knowledge_areas: knowledge_areas ? knowledge_areas.split(', ').map(area => area.trim()) : ["Combat", "Strategy"],
       image: "ipfs://" + imageCid
     };
-    
+
     console.log("Created metadata JSON:", metadata);
-    
+
     // Step 3: Upload JSON metadata to IPFS
-    const { cid: metadataCid } = await pinata.upload.public.json(metadata);
+    const metadataResult = await pinata.upload.json(metadata);
+    const metadataCid = metadataResult.IpfsHash;
     console.log("Metadata JSON uploaded successfully. CID:", metadataCid);
-    
+
     // Get the gateway URLs
-    const imageUrl = await pinata.gateways.public.convert(imageCid);
-    const metadataUrl = await pinata.gateways.public.convert(metadataCid);
+    const gatewayUrl = process.env.NEXT_PUBLIC_GATEWAY_URL || "https://gateway.pinata.cloud/ipfs/";
+    const imageUrl = `${gatewayUrl}${imageCid}`;
+    const metadataUrl = `${gatewayUrl}${metadataCid}`;
     
     console.log("=== IPFS UPLOAD COMPLETE ===");
     console.log("Image CID:", imageCid);
@@ -57,7 +64,7 @@ export async function POST(request: NextRequest) {
       metadataCid: metadataCid,
       metadataUrl: metadataUrl,
       metadata: metadata,
-      size: file.size
+      size: fileSize
     }, { status: 200 });
     
   } catch (e) {
