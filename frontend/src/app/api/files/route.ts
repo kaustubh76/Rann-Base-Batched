@@ -17,15 +17,18 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "No file received" }, { status: 400 });
     }
 
-    // Convert to File object for Pinata
+    // Convert Blob to File for Pinata SDK v3
     const fileName = (file as any).name || "uploaded-image.jpg";
     const fileSize = file.size;
 
+    // Create a File object from Blob
+    const imageFile = new File([file], fileName, { type: file.type });
+
     console.log("Uploading file to Pinata:", fileName, "(" + (fileSize / 1024 / 1024).toFixed(2) + " MB)");
 
-    // Step 1: Upload image to Pinata IPFS
-    const uploadResult = await pinata.upload.file(file);
-    const imageCid = uploadResult.IpfsHash;
+    // Step 1: Upload image to Pinata IPFS using SDK v3
+    const imageUpload = await pinata.upload.file(imageFile);
+    const imageCid = imageUpload.cid;
     console.log("Image uploaded successfully. CID:", imageCid);
 
     // Step 2: Create JSON metadata
@@ -40,9 +43,9 @@ export async function POST(request: NextRequest) {
 
     console.log("Created metadata JSON:", metadata);
 
-    // Step 3: Upload JSON metadata to IPFS
-    const metadataResult = await pinata.upload.json(metadata);
-    const metadataCid = metadataResult.IpfsHash;
+    // Step 3: Upload JSON metadata to IPFS using SDK v3
+    const metadataUpload = await pinata.upload.json(metadata);
+    const metadataCid = metadataUpload.cid;
     console.log("Metadata JSON uploaded successfully. CID:", metadataCid);
 
     // Get the gateway URLs
