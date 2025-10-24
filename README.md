@@ -1,19 +1,20 @@
 # Rann - AI-Powered Web3 Battle Arena
 
-> **🏆 Built for PL Genesis Modular Worlds Hackathon 2025**
+> **🏆 Built for Base Batch Hackathon 2025**
 
 An innovative Web3 gaming platform where AI-powered warrior NFTs battle autonomously in epic arenas, combining blockchain technology with advanced AI agents from NEAR Protocol. Experience true ownership, autonomous gameplay, and real economic incentives in a decentralized gaming ecosystem.
 
 [![🎮 Live Demo](https://img.shields.io/badge/🎮%20Live%20Demo-Play%20Now-brightgreen?style=for-the-badge)](https://rann-blue.vercel.app/)
+[![Base Sepolia](https://img.shields.io/badge/Base%20Sepolia-Deployed-blue?style=for-the-badge)](https://sepolia.basescan.org)
 [![NEAR AI Integration Explanation](https://img.shields.io/badge/%20NEAR%20AI%20Integration%20Explanation-Watch%20Now-red?style=for-the-badge&logo=youtube&logoColor=white)](https://www.loom.com/share/2ef49a559ab64ed88f9243278ee949b4?sid=e54a6d53-15a2-4aa9-853a-594719add69f)
 
 ## Experience Rann
 
 **Quick Start Guide:**
-1. **Connect Wallet**: MetaMask or compatible wallet for Flow Testnet
-2. **Required Extra Wallet**: Required Near compatible Wallet for AI useage
-3. **Get Test Tokens**: Use the faucet to get Flow tokens
-4. **Mint RANN**: Exchange Flow tokens for RANN tokens (1:1 ratio)
+1. **Connect Wallet**: MetaMask or compatible wallet for Base Sepolia Testnet
+2. **Required Extra Wallet**: Required Near compatible Wallet for AI usage
+3. **Get Test Tokens**: Use the [Base Sepolia Faucet](https://www.coinbase.com/faucets/base-ethereum-goerli-faucet) to get ETH
+4. **Mint RANN**: Exchange ETH for RANN tokens (1:1 ratio)
 5. **Create Warrior**: Upload image, AI generates traits automatically
 6. **Train & Battle**: Improve your warrior and enter autonomous battles
 
@@ -21,12 +22,12 @@ An innovative Web3 gaming platform where AI-powered warrior NFTs battle autonomo
 - 🤖 **AI-Powered Combat**: Warriors make autonomous decisions using NEAR AI
 - 🏆 **Real Rewards**: Earn RANN tokens through strategic gameplay
 - 🎨 **Dynamic NFTs**: Warrior traits evolve based on training and battles
-- 🌊 **Cross-Chain**: NEAR AI intelligence meets Flow blockchain scalability
+- 🌊 **Cross-Chain**: NEAR AI intelligence meets Base blockchain scalability
 - 🔥 **Live Betting**: Real-time betting on autonomous battles
 
 ## Introduction
 
-Rann represents a paradigm shift in Web3 gaming, introducing the world's first fully autonomous AI-powered battle arena where warriors fight using advanced machine learning algorithms. Built on Flow blockchain for scalability and powered by NEAR AI agents for intelligence, Rann creates an ecosystem where every battle is unique, unpredictable, and economically rewarding.
+Rann represents a paradigm shift in Web3 gaming, introducing the world's first fully autonomous AI-powered battle arena where warriors fight using advanced machine learning algorithms. Built on Base blockchain for scalability and powered by NEAR AI agents for intelligence, Rann creates an ecosystem where every battle is unique, unpredictable, and economically rewarding.
 
 ### The Vision
 In traditional gaming, players are limited by manual control and predetermined outcomes. Rann breaks these boundaries by creating truly autonomous digital warriors that learn, adapt, and evolve based on their experiences. Each Yodha (warrior) NFT is not just a static asset but a living, breathing AI entity with its own personality, fighting style, and strategic intelligence.
@@ -46,7 +47,7 @@ In traditional gaming, players are limited by manual control and predetermined o
 - **Evolutionary Gameplay**: Warriors learn and adapt from every battle experience
 
 ### Key Innovations
-1. **Cross-Chain AI Integration**: First platform to successfully integrate NEAR AI agents with Flow blockchain
+1. **Cross-Chain AI Integration**: First platform to successfully integrate NEAR AI agents with Base blockchain
 2. **Autonomous Combat System**: Warriors battle without human intervention using advanced AI decision-making
 3. **Dynamic Trait Evolution**: Warrior characteristics change based on battle outcomes and training
 4. **Economic Sustainability**: Self-sustaining tokenomics with multiple revenue streams
@@ -146,9 +147,15 @@ In traditional gaming, players are limited by manual control and predetermined o
 - **Leaderboards**: Global and arena-specific rankings
 - **Achievement System**: Badges and titles for exceptional performance
 
-## Flow Integration
-We are building the game on Flow chain because of its speed, We store each and every micro details of transactions and every game states on chain, and to make this possible for our game we need a very fast chain.
-Also one of other major reason is the VRF service that flow provides natively. Unlike other oracles, which generates random number in like 40-60 seconds, Flow does the same in 1-2 seconds. Since our main battle mechanies depends or VRF (hit/miss), we had to generate a random number 2 times in a single round = 10 minutes in a single battle, which obviously makes other oracles useless.
+## Base Integration
+We deployed Rann on Base Sepolia because of its superior performance characteristics and developer ecosystem. We store each and every micro detail of transactions and every game state on-chain, and Base provides the perfect infrastructure for this with its:
+
+- **Low Transaction Fees**: Making frequent on-chain interactions affordable for players
+- **Fast Finality**: 1-2 second block times ensure smooth gameplay experience
+- **Ethereum Compatibility**: Full EVM compatibility with Ethereum's security
+- **Growing Ecosystem**: Access to Base's vibrant DeFi and NFT communities
+
+Our custom VRF (Verifiable Random Function) implementation on Base provides instant randomness generation (1-2 seconds) which is crucial for our battle mechanics that require multiple random numbers per round.
 
 ## NEAR Integration
 1. First, we are using, attributes generator event, [Link](https://app.near.ai/agents/samkitsoni.near/attributes-generator/latest). We can desicribe any personality or just name a famous frictional/non-frictional personality to this agent and it will generate the personality attributes in the required format. For example, intents can be passed like:
@@ -545,14 +552,14 @@ This flowchart demonstrates:
 
 ### Contract Addresses
 
-#### Flow (Chain ID: 545)
+#### Base Sepolia (Chain ID: 84532) - Primary Deployment
 | Contract Name | Contract Address | Explorer |
 |---------------|------------------|----------|
-| **RannToken** | `0x7465365aEeE1bD38ce6d80EaeDc530fCDEF691dC` | [evm-testnet.flowscan.io](https://evm-testnet.flowscan.io/address/0x7465365aEeE1bD38ce6d80EaeDc530fCDEF691dC?tab=index) |
-| **YodhaNFT** | `0x96A00495635e6d4691268d6f8EA9e673a513CAC7` | [evm-testnet.flowscan.io](https://evm-testnet.flowscan.io/address/0x96A00495635e6d4691268d6f8EA9e673a513CAC7) |
-| **KurukshetraFactory** | `0xBc6312ff604e18905229c24E716Ab018995796BE` | [evm-testnet.flowscan.io](https://evm-testnet.flowscan.io/address/0xBc6312ff604e18905229c24E716Ab018995796BE) |
-| **Bazaar** | `0x5a4A13709F9Dad9ddE4fF229d8393364eE264b46` | [evm-testnet.flowscan.io](https://evm-testnet.flowscan.io/address/0x5a4A13709F9Dad9ddE4fF229d8393364eE264b46) |
-| **Gurukul** | `0x81428A5620423d5F51eB60c9614dfB20001799e6` | [evm-testnet.flowscan.io](https://evm-testnet.flowscan.io/address/0x81428A5620423d5F51eB60c9614dfB20001799e6) |
+| **RannToken** | `0xdff6c8409fae4253e207df8d2d0de0eaf79674e5` | [sepolia.basescan.org](https://sepolia.basescan.org/address/0xdff6c8409fae4253e207df8d2d0de0eaf79674e5) |
+| **YodhaNFT** | `0xccce492f07c866b4f8b0fba1e0a5f102c8a92a68` | [sepolia.basescan.org](https://sepolia.basescan.org/address/0xccce492f07c866b4f8b0fba1e0a5f102c8a92a68) |
+| **KurukshetraFactory** | `0x3ca84d579d5c9e1b0561becb5c7fbaa5209636e8` | [sepolia.basescan.org](https://sepolia.basescan.org/address/0x3ca84d579d5c9e1b0561becb5c7fbaa5209636e8) |
+| **Bazaar** | `0xaaf1e4610707bd9b0e70aac7dfcbe183b771df61` | [sepolia.basescan.org](https://sepolia.basescan.org/address/0xaaf1e4610707bd9b0e70aac7dfcbe183b771df61) |
+| **Gurukul** | `0x84270ed3b1e47adaf7e03514fbd6e30e107a46c5` | [sepolia.basescan.org](https://sepolia.basescan.org/address/0x84270ed3b1e47adaf7e03514fbd6e30e107a46c5) |
 
 ### Component Architecture
 ```
@@ -620,12 +627,12 @@ Project Root/
 1. **Connect Your Wallet**
    - Click "Connect Wallet" in the top-right corner
    - Select your preferred wallet (MetaMask, WalletConnect, etc.)
-   - Ensure you're connected to Flow Testnet (Chain ID: 545)
+   - Ensure you're connected to Base Sepolia Testnet (Chain ID: 84532)
    - Confirm the connection in your wallet
 
 2. **Acquire RANN Tokens**
-   - Make sure that you have Flow testnet tokens already . You can do this by visiting their token faucet
-   - Request testnet RANN tokens
+   - Make sure you have Base Sepolia ETH. Get it from [Base Sepolia Faucet](https://www.coinbase.com/faucets/base-ethereum-goerli-faucet)
+   - Exchange ETH for RANN tokens (1:1 ratio) through the platform
    - Verify token balance in your wallet
    - Approve token spending for platform contracts
 
