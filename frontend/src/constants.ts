@@ -26,11 +26,11 @@ interface ContractsConfig {
 export const chainsToTSender: ContractsConfig = {
     // Base Sepolia (Primary deployment for hackathon)
     84532: {
-        rannToken: "0x0000000000000000000000000000000000000000", // Update after deployment
-        yodhaNFT: "0x0000000000000000000000000000000000000000", // Update after deployment
-        Bazaar: "0x0000000000000000000000000000000000000000", // Update after deployment
-        Gurukul: "0x0000000000000000000000000000000000000000", // Update after deployment
-        KurukshetraFactory: "0x0000000000000000000000000000000000000000" // Update after deployment
+        rannToken: "0xdff6c8409fae4253e207df8d2d0de0eaf79674e5",
+        yodhaNFT: "0xccce492f07c866b4f8b0fba1e0a5f102c8a92a68",
+        Bazaar: "0xaaf1e4610707bd9b0e70aac7dfcbe183b771df61",
+        Gurukul: "0x84270ed3b1e47adaf7e03514fbd6e30e107a46c5",
+        KurukshetraFactory: "0x3ca84d579d5c9e1b0561becb5c7fbaa5209636e8"
     },
     // Flow Testnet (Legacy - for reference)
     545: {
