@@ -17,17 +17,15 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "No file received" }, { status: 400 });
     }
 
-    // Convert Blob to File for Pinata SDK v3
+    // Get file info
     const fileName = (file as any).name || "uploaded-image.jpg";
     const fileSize = file.size;
-
-    // Create a File object from Blob
-    const imageFile = new File([file], fileName, { type: file.type });
 
     console.log("Uploading file to Pinata:", fileName, "(" + (fileSize / 1024 / 1024).toFixed(2) + " MB)");
 
     // Step 1: Upload image to Pinata IPFS using SDK v3
-    const imageUpload = await pinata.upload.file(imageFile);
+    // Pinata SDK v3 accepts Blob directly, no need to convert to File
+    const imageUpload = await pinata.upload.file(file as File);
     const imageCid = imageUpload.cid;
     console.log("Image uploaded successfully. CID:", imageCid);
 
