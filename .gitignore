@@ -1,0 +1,51 @@
+# Compiler files
+cache/
+out/
+
+# Ignores development broadcast logs
+!/broadcast
+/broadcast/*/31337/
+/broadcast/**/dry-run/
+
+# Docs
+docs/
+
+# Dotenv files
+.env
+.env.local
+.env*.local
+frontend/.env
+frontend/.env.local
+frontend/.env*.local
+
+# Node modules
+node_modules/
+frontend/node_modules/
+
+# Build artifacts
+dist/
+build/
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.iml
+.DS_Store
+
+# Frontend
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/.turbo/
+
+# Private keys (IMPORTANT!)
+*.key
+*.pem
+privateKey*
+secrets*
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
