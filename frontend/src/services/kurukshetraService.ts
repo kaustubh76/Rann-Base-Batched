@@ -26,11 +26,11 @@ export const kurukshetraService = {
   async getArenasOfRanking(ranking: Ranking): Promise<string[]> {
     try {
       const result = await readContract(rainbowKitConfig, {
-        address: chainsToTSender[545].KurukshetraFactory as `0x${string}`,
+        address: chainsToTSender[84532].KurukshetraFactory as `0x${string}`,
         abi: KurukshetraFactoryAbi,
         functionName: 'getArenasOfARanking',
         args: [ranking],
-        chainId: 545,
+        chainId: 84532,
       });
 
       return result as string[];
@@ -84,10 +84,10 @@ export const kurukshetraService = {
   async getAllArenas(): Promise<string[]> {
     try {
       const result = await readContract(rainbowKitConfig, {
-        address: chainsToTSender[545].KurukshetraFactory as `0x${string}`,
+        address: chainsToTSender[84532].KurukshetraFactory as `0x${string}`,
         abi: KurukshetraFactoryAbi,
         functionName: 'getArenas',
-        chainId: 545,
+        chainId: 84532,
       });
 
       return result as string[];
@@ -103,11 +103,11 @@ export const kurukshetraService = {
   async getArenaRanking(arenaAddress: string): Promise<Ranking | null> {
     try {
       const result = await readContract(rainbowKitConfig, {
-        address: chainsToTSender[545].KurukshetraFactory as `0x${string}`,
+        address: chainsToTSender[84532].KurukshetraFactory as `0x${string}`,
         abi: KurukshetraFactoryAbi,
         functionName: 'getArenaRanking',
         args: [arenaAddress as `0x${string}`],
-        chainId: 545,
+        chainId: 84532,
       });
 
       return result as Ranking;
@@ -123,11 +123,11 @@ export const kurukshetraService = {
   async isArenaAddress(address: string): Promise<boolean> {
     try {
       const result = await readContract(rainbowKitConfig, {
-        address: chainsToTSender[545].KurukshetraFactory as `0x${string}`,
+        address: chainsToTSender[84532].KurukshetraFactory as `0x${string}`,
         abi: KurukshetraFactoryAbi,
         functionName: 'isArenaAddress',
         args: [address as `0x${string}`],
-        chainId: 545,
+        chainId: 84532,
       });
 
       return result as boolean;

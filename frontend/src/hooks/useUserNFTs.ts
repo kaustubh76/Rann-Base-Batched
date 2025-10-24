@@ -160,7 +160,7 @@ const rankingToString = (ranking: number): 'unranked' | 'bronze' | 'silver' | 'g
   }
 };
 
-export const useUserNFTs = (isActive: boolean = false, chainId: number = 545) => {
+export const useUserNFTs = (isActive: boolean = false, chainId: number = 84532) => {
   const { address: connectedAddress } = useAccount();
 
   const [userNFTs, setUserNFTs] = useState<UserYodha[]>([]);

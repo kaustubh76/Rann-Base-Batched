@@ -197,7 +197,7 @@ Successfully integrates NEAR AI agents with Base blockchain through:
 ## Performance Metrics
 
 ### On-Chain Performance
-- **Average Battle Time**: 5-10 seconds (10x faster than Flow VRF)
+- **Average Battle Time**: 5-10 seconds (optimized for performance)
 - **Gas Costs**: 30% lower than unoptimized contracts
 - **VRF Generation**: 1-2 seconds (68% cheaper in batch mode)
 - **Transaction Success Rate**: 99.9% on Base Sepolia

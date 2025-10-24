@@ -181,39 +181,39 @@ export const yodhaNFTService = {
       // Fetch basic contract data including traits from contract
       const [tokenURI, ranking, winnings, owner, contractTraits] = await Promise.all([
         readContract(rainbowKitConfig, {
-          address: chainsToTSender[545].yodhaNFT as `0x${string}`,
+          address: chainsToTSender[84532].yodhaNFT as `0x${string}`,
           abi: yodhaNFTAbi,
           functionName: 'tokenURI',
           args: [BigInt(tokenId)],
-          chainId: 545,
+          chainId: 84532,
         }),
         readContract(rainbowKitConfig, {
-          address: chainsToTSender[545].yodhaNFT as `0x${string}`,
+          address: chainsToTSender[84532].yodhaNFT as `0x${string}`,
           abi: yodhaNFTAbi,
           functionName: 'getRanking',
           args: [BigInt(tokenId)],
-          chainId: 545,
+          chainId: 84532,
         }),
         readContract(rainbowKitConfig, {
-          address: chainsToTSender[545].yodhaNFT as `0x${string}`,
+          address: chainsToTSender[84532].yodhaNFT as `0x${string}`,
           abi: yodhaNFTAbi,
           functionName: 'getWinnings',
           args: [BigInt(tokenId)],
-          chainId: 545,
+          chainId: 84532,
         }),
         readContract(rainbowKitConfig, {
-          address: chainsToTSender[545].yodhaNFT as `0x${string}`,
+          address: chainsToTSender[84532].yodhaNFT as `0x${string}`,
           abi: yodhaNFTAbi,
           functionName: 'ownerOf',
           args: [BigInt(tokenId)],
-          chainId: 545,
+          chainId: 84532,
         }),
         readContract(rainbowKitConfig, {
-          address: chainsToTSender[545].yodhaNFT as `0x${string}`,
+          address: chainsToTSender[84532].yodhaNFT as `0x${string}`,
           abi: yodhaNFTAbi,
           functionName: 'getTraits',
           args: [BigInt(tokenId)],
-          chainId: 545,
+          chainId: 84532,
         })
       ]);
 

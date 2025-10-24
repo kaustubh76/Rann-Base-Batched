@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createWalletClient, http, createPublicClient } from 'viem';
 import { privateKeyToAccount } from 'viem/accounts';
-import { flowPreviewnet } from 'viem/chains';
+import { baseSepolia } from 'viem/chains';
 
 // Import the contract ABI
 import { KurukshetraAbi } from '../../../constants';
@@ -19,13 +19,13 @@ const gameMasterAccount = privateKeyToAccount(GAME_MASTER_PRIVATE_KEY);
 // Create wallet client for transactions
 const walletClient = createWalletClient({
   account: gameMasterAccount,
-  chain: flowPreviewnet,
+  chain: baseSepolia,
   transport: http()
 });
 
 // Create public client for reading contract state
 const publicClient = createPublicClient({
-  chain: flowPreviewnet,
+  chain: baseSepolia,
   transport: http()
 });
 

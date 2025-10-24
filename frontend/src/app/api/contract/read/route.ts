@@ -1,12 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createPublicClient, http } from 'viem';
 import { Chain } from 'viem';
-import { anvil, flowTestnet, flowMainnet } from 'viem/chains';
+import { anvil, baseSepolia } from 'viem/chains';
 
 // Define supported chains
 const SUPPORTED_CHAINS: Record<number, Chain> = {
-  [flowTestnet.id]: flowTestnet, // Chain ID 545
-  [flowMainnet.id]: flowMainnet, // Chain ID 747
+  [baseSepolia.id]: baseSepolia, // Chain ID 84532
   [anvil.id]: anvil, // Chain ID 31337
 };
 
@@ -21,8 +20,8 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Default to chain 545 (Flow testnet) if no chainId provided (for backward compatibility)
-    const targetChainId = chainId || 545;
+    // Default to Base Sepolia (84532) if no chainId provided
+    const targetChainId = chainId || 84532;
 
     // Get the chain configuration
     const chain = SUPPORTED_CHAINS[targetChainId];

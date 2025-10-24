@@ -55,7 +55,7 @@ const TokenExchangeCard = ({
           abi: rannTokenAbi,
           functionName: 'mint',
           args: [amountInWei],
-          value: amountInWei, // Send ETH/FLOW equivalent to mint amount
+          value: amountInWei, // Send ETH equivalent to mint amount
         });
       } else {
         // Call burn function
@@ -544,23 +544,23 @@ export default function HomePage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Mint RANN Tokens */}
-              <TokenExchangeCard 
+              <TokenExchangeCard
                 title="MINT RANN"
-                description="CONVERT FLOW TO RANN"
+                description="CONVERT ETH TO RANN"
                 icon="⚡"
-                fromToken="FLOW"
+                fromToken="ETH"
                 toToken="RANN"
                 rate="1:1"
                 type="mint"
               />
 
               {/* Burn RANN Tokens */}
-              <TokenExchangeCard 
+              <TokenExchangeCard
                 title="BURN RANN"
-                description="CONVERT RANN TO FLOW"
+                description="CONVERT RANN TO ETH"
                 icon="🔥"
                 fromToken="RANN"
-                toToken="FLOW"
+                toToken="ETH"
                 rate="1:1"
                 type="burn"
               />

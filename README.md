@@ -373,8 +373,8 @@ Assistant: {
 }
 ```
 
-### How we are handeling cross-chain verification:
-- The main authentication part that we had to implement was when working with the traits assigning part. When we fetch the response from the NEAR AI agent, we sign it(ECDSA signature) using a pre-defined private key and then passes the signed data along with the response to the function in the contract on the FLOW chain. The contract already have the public key associated the one in the backed, as soon as the function is called it first verifies that the data is signed by the correct private key or not. If yes, then only it starts further process.
+### How we are handling cross-chain verification:
+- The main authentication part that we had to implement was when working with the traits assigning part. When we fetch the response from the NEAR AI agent, we sign it(ECDSA signature) using a pre-defined private key and then passes the signed data along with the response to the function in the contract on the Base Sepolia chain. The contract already have the public key associated the one in the backend, as soon as the function is called it first verifies that the data is signed by the correct private key or not. If yes, then only it starts further process.
 - Following is the example of function, assignTraitsAndMoves function which is called upon the generation of second agent's output:
 ```solidity
 /**
@@ -453,19 +453,19 @@ Assistant: {
 This flowchart demonstrates:
 - **User Interaction Flow**: From wallet connection to battle participation
 - **AI Agent Integration**: How NEAR AI agents process data and make decisions
-- **Cross-Chain Communication**: Data flow between NEAR AI and Flow blockchain
+- **Cross-Chain Communication**: Data flow between NEAR AI and Base blockchain
 - **Game Master Automation**: Automated battle execution and state management
 - **Smart Contract Interactions**: How different contracts communicate and update state
 
 ## Tech Stack
 
 ### Blockchain & Smart Contracts
-- **Flow Blockchain**: High-performance blockchain for scalable dApps
-  - **Network**: Flow Testnet (Chain ID: 545)
-  - **Consensus**: Proof of Stake with unique multi-role architecture
-  - **Transaction Speed**: 1-2 second finality
+- **Base Sepolia**: Layer 2 blockchain built on Ethereum for scalable dApps
+  - **Network**: Base Sepolia Testnet (Chain ID: 84532)
+  - **Consensus**: Optimistic rollup with Ethereum security
+  - **Transaction Speed**: Fast finality with low fees
   - **Gas Efficiency**: Optimized for gaming applications
-  - **Smart Contract Language**: Solidity with Flow-specific optimizations
+  - **Smart Contract Language**: Solidity
 
 - **Foundry Framework**: Complete toolkit for smart contract development
 
@@ -745,7 +745,7 @@ Project Root/
 ### Innovation Highlights
 
 #### Technical Breakthroughs
-1. **First Cross-Chain AI Gaming Platform**: Successfully integrating NEAR AI with Flow blockchain
+1. **First Cross-Chain AI Gaming Platform**: Successfully integrating NEAR AI with Base blockchain
 2. **Autonomous Battle System**: Fully automated gameplay without human intervention
 3. **Dynamic NFT Evolution**: On-chain trait modification based on AI analysis
 4. **Real-time Economic Engine**: Live betting and reward distribution
@@ -787,7 +787,6 @@ Our automated game master system ensures battles execute flawlessly without huma
 - **npm**: Version 8.0.0 or higher (comes with Node.js)
 - **Foundry**: Latest version for smart contract development
 - **Git**: For version control
-- **Flow CLI**: For Flow blockchain interactions (optional)
 
 ### 1. Clone the Repository
 ```bash
@@ -848,9 +847,6 @@ NEAR_AGENT_ACCOUNT_ID=your_near_account_id
 # ===== GAME MASTER CONFIGURATION =====
 NEXT_PUBLIC_GAME_MASTER_PRIVATE_KEY=your_game_master_private_key
 
-# ===== FLOW BLOCKCHAIN =====
-FLOW_TESTNET_RPC=https://testnet.evm.nodes.onflow.org
-
 # ===== IPFS/PINATA CONFIGURATION =====
 PINATA_JWT=your_pinata_jwt_token
 NEXT_PUBLIC_GATEWAY_URL=https://gateway.pinata.cloud/ipfs/
@@ -877,14 +873,14 @@ npm run dev
 ## Challenges & Solutions
 
 ### Challenge 1: Cross-Chain AI Integration
-**Problem**: Connecting NEAR AI agents with Flow blockchain contracts presented unprecedented technical challenges
-- **API Compatibility**: NEAR AI agents and Flow blockchain use different communication protocols
+**Problem**: Connecting NEAR AI agents with Base blockchain contracts presented unprecedented technical challenges
+- **API Compatibility**: NEAR AI agents and Base blockchain use different communication protocols
 - **Authentication**: Secure authentication between disparate blockchain ecosystems
 - **Latency Issues**: Network delays affecting real-time battle execution
 - **Data Format Conversion**: Converting AI responses to blockchain-compatible formats
 
 **Solution**:
-- **Custom API Layer**: Developed middleware to translate between NEAR and Flow protocols
+- **Custom API Layer**: Developed middleware to translate between NEAR and Base protocols
 - **Authentication Pipeline**: Implemented secure token-based authentication with signature verification
 - **Response Caching**: Strategic caching to reduce latency for repeated AI queries
 - **Data Normalization**: Standardized data formats for seamless communication

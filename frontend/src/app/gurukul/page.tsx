@@ -451,7 +451,7 @@ export default function GurukulPage() {
                     abi: yodhaNFTAbi,
                     functionName: 'tokenURI',
                     args: [tokenId.toString()],
-                    chainId: chainId || 545
+                    chainId: chainId || 84532
                   })
                 }).then(async res => {
                   const data = await res.json();
@@ -470,7 +470,7 @@ export default function GurukulPage() {
                     abi: yodhaNFTAbi,
                     functionName: 'getTraits',
                     args: [tokenId.toString()],
-                    chainId: chainId || 545
+                    chainId: chainId || 84532
                   })
                 }).then(async res => {
                   const data = await res.json();
@@ -489,7 +489,7 @@ export default function GurukulPage() {
                     abi: yodhaNFTAbi,
                     functionName: 'getRanking',
                     args: [tokenId.toString()],
-                    chainId: chainId || 545
+                    chainId: chainId || 84532
                   })
                 }).then(async res => {
                   const data = await res.json();
@@ -508,7 +508,7 @@ export default function GurukulPage() {
                     abi: yodhaNFTAbi,
                     functionName: 'getWinnings',
                     args: [tokenId.toString()],
-                    chainId: chainId || 545
+                    chainId: chainId || 84532
                   })
                 }).then(async res => {
                   const data = await res.json();

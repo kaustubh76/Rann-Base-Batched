@@ -539,11 +539,11 @@ export default function KurukshetraPage() {
 
       // Fetch from contract
       const moves = await readContract(rainbowKitConfig, {
-        address: chainsToTSender[545].yodhaNFT as `0x${string}`,
+        address: chainsToTSender[84532].yodhaNFT as `0x${string}`,
         abi: yodhaNFTAbi,
         functionName: 'getMoves',
         args: [tokenId],
-        chainId: 545,
+        chainId: 84532,
       });
 
       const movesData = moves as { strike?: string; taunt?: string; dodge?: string; special?: string; recover?: string };
@@ -678,26 +678,26 @@ export default function KurukshetraPage() {
       const { createWalletClient, http } = await import('viem');
       const { defineChain } = await import('viem');
       
-      const flowTestnet = defineChain({
-        id: 545,
-        name: 'Flow Testnet',
-        network: 'flow-testnet',
+      const baseSepolia = defineChain({
+        id: 84532,
+        name: 'Base Sepolia',
+        network: 'base-sepolia',
         nativeCurrency: {
           decimals: 18,
-          name: 'Flow',
-          symbol: 'FLOW',
+          name: 'Ether',
+          symbol: 'ETH',
         },
         rpcUrls: {
           default: {
-            http: ['https://testnet.evm.nodes.onflow.org'],
+            http: ['https://sepolia.base.org'],
           },
         },
       });
 
       const gameMasterWalletClient = createWalletClient({
         account: gameStandardAccount,
-        chain: flowTestnet,
-        transport: http('https://testnet.evm.nodes.onflow.org'),
+        chain: baseSepolia,
+        transport: http('https://sepolia.base.org'),
       });
 
       // Call the battle function using Game Master's wallet client
@@ -713,8 +713,8 @@ export default function KurukshetraPage() {
       // Wait for confirmation
       const { createPublicClient } = await import('viem');
       const publicClient = createPublicClient({
-        chain: flowTestnet,
-        transport: http('https://testnet.evm.nodes.onflow.org'),
+        chain: baseSepolia,
+        transport: http('https://sepolia.base.org'),
       });
 
       const receipt = await publicClient.waitForTransactionReceipt({
@@ -1046,26 +1046,26 @@ export default function KurukshetraPage() {
       const { createWalletClient, http } = await import('viem');
       const { defineChain } = await import('viem');
       
-      const flowTestnet = defineChain({
-        id: 545,
-        name: 'Flow Testnet',
-        network: 'flow-testnet',
+      const baseSepolia = defineChain({
+        id: 84532,
+        name: 'Base Sepolia',
+        network: 'base-sepolia',
         nativeCurrency: {
           decimals: 18,
-          name: 'Flow',
-          symbol: 'FLOW',
+          name: 'Ether',
+          symbol: 'ETH',
         },
         rpcUrls: {
           default: {
-            http: ['https://testnet.evm.nodes.onflow.org'],
+            http: ['https://sepolia.base.org'],
           },
         },
       });
 
       const gameMasterWalletClient = createWalletClient({
         account: gameStandardAccount,
-        chain: flowTestnet,
-        transport: http('https://testnet.evm.nodes.onflow.org'),
+        chain: baseSepolia,
+        transport: http('https://sepolia.base.org'),
       });
 
       console.log(`Using Game Master account: ${gameStandardAccount.address}`);
@@ -1083,8 +1083,8 @@ export default function KurukshetraPage() {
       // Wait for confirmation
       const { createPublicClient } = await import('viem');
       const publicClient = createPublicClient({
-        chain: flowTestnet,
-        transport: http('https://testnet.evm.nodes.onflow.org'),
+        chain: baseSepolia,
+        transport: http('https://sepolia.base.org'),
       });
 
       const receipt = await publicClient.waitForTransactionReceipt({
@@ -1214,7 +1214,7 @@ export default function KurukshetraPage() {
         // Wait for approval confirmation
         await waitForTransactionReceipt(rainbowKitConfig, {
           hash: approvalHash as `0x${string}`,
-          chainId: 545,
+          chainId: 84532,
         });
 
         console.log('RANN token approval confirmed!');
@@ -1235,7 +1235,7 @@ export default function KurukshetraPage() {
       // Wait for confirmation
       await waitForTransactionReceipt(rainbowKitConfig, {
         hash: transactionHash as `0x${string}`,
-        chainId: 545,
+        chainId: 84532,
       });
 
       console.log('Bet confirmed!');
@@ -1283,7 +1283,7 @@ export default function KurukshetraPage() {
         // Wait for approval confirmation
         await waitForTransactionReceipt(rainbowKitConfig, {
           hash: approvalHash as `0x${string}`,
-          chainId: 545,
+          chainId: 84532,
         });
 
         console.log('RANN token approval confirmed!');
@@ -1303,7 +1303,7 @@ export default function KurukshetraPage() {
       // Wait for confirmation
       await waitForTransactionReceipt(rainbowKitConfig, {
         hash: transactionHash as `0x${string}`,
-        chainId: 545,
+        chainId: 84532,
       });
 
       console.log('Influence confirmed!');
@@ -1349,7 +1349,7 @@ export default function KurukshetraPage() {
         // Wait for approval confirmation
         await waitForTransactionReceipt(rainbowKitConfig, {
           hash: approvalHash as `0x${string}`,
-          chainId: 545,
+          chainId: 84532,
         });
 
         console.log('RANN token approval confirmed!');
@@ -1369,7 +1369,7 @@ export default function KurukshetraPage() {
       // Wait for confirmation
       await waitForTransactionReceipt(rainbowKitConfig, {
         hash: transactionHash as `0x${string}`,
-        chainId: 545,
+        chainId: 84532,
       });
 
       console.log('Defluence confirmed!');
@@ -1405,7 +1405,7 @@ export default function KurukshetraPage() {
       // Wait for transaction confirmation
       const receipt = await waitForTransactionReceipt(rainbowKitConfig, {
         hash: transactionHash as `0x${string}`,
-        chainId: 545,
+        chainId: 84532,
       });
 
       console.log('Transaction confirmed:', receipt);

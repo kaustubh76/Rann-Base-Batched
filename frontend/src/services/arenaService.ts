@@ -72,11 +72,11 @@ export const arenaService = {
   async approveRannTokens(arenaAddress: string, amount: bigint): Promise<string> {
     try {
       const hash = await writeContract(rainbowKitConfig, {
-        address: chainsToTSender[545].rannToken as `0x${string}`,
+        address: chainsToTSender[84532].rannToken as `0x${string}`,
         abi: rannTokenAbi,
         functionName: 'approve',
         args: [arenaAddress as `0x${string}`, amount],
-        chainId: 545,
+        chainId: 84532,
       });
 
       return hash;
@@ -94,11 +94,11 @@ export const arenaService = {
   async getRannAllowance(userAddress: string, arenaAddress: string): Promise<bigint> {
     try {
       const allowance = await readContract(rainbowKitConfig, {
-        address: chainsToTSender[545].rannToken as `0x${string}`,
+        address: chainsToTSender[84532].rannToken as `0x${string}`,
         abi: rannTokenAbi,
         functionName: 'allowance',
         args: [userAddress as `0x${string}`, arenaAddress as `0x${string}`],
-        chainId: 545,
+        chainId: 84532,
       });
 
       return allowance as bigint;
@@ -115,11 +115,11 @@ export const arenaService = {
   async getRannBalance(userAddress: string): Promise<bigint> {
     try {
       const balance = await readContract(rainbowKitConfig, {
-        address: chainsToTSender[545].rannToken as `0x${string}`,
+        address: chainsToTSender[84532].rannToken as `0x${string}`,
         abi: rannTokenAbi,
         functionName: 'balanceOf',
         args: [userAddress as `0x${string}`],
-        chainId: 545,
+        chainId: 84532,
       });
 
       return balance as bigint;
@@ -143,7 +143,7 @@ export const arenaService = {
         abi: KurukshetraAbi,
         functionName: 'initializeGame',
         args: [BigInt(yodhaOneNFTId), BigInt(yodhaTwoNFTId)],
-        chainId: 545,
+        chainId: 84532,
       });
 
       return hash;
@@ -183,110 +183,110 @@ export const arenaService = {
           address: arenaAddress as `0x${string}`,
           abi: KurukshetraAbi,
           functionName: 'getYodhaOneNFTId',
-          chainId: 545,
+          chainId: 84532,
         }),
         readContract(rainbowKitConfig, {
           address: arenaAddress as `0x${string}`,
           abi: KurukshetraAbi,
           functionName: 'getYodhaTwoNFTId',
-          chainId: 545,
+          chainId: 84532,
         }),
         readContract(rainbowKitConfig, {
           address: arenaAddress as `0x${string}`,
           abi: KurukshetraAbi,
           functionName: 'getCurrentRound',
-          chainId: 545,
+          chainId: 84532,
         }),
         readContract(rainbowKitConfig, {
           address: arenaAddress as `0x${string}`,
           abi: KurukshetraAbi,
           functionName: 'getInitializationStatus',
-          chainId: 545,
+          chainId: 84532,
         }),
         // Removed getBattleStatus - using new isBattleOngoing function instead
         readContract(rainbowKitConfig, {
           address: arenaAddress as `0x${string}`,
           abi: KurukshetraAbi,
           functionName: 'getGameInitializedAt',
-          chainId: 545,
+          chainId: 84532,
         }),
         readContract(rainbowKitConfig, {
           address: arenaAddress as `0x${string}`,
           abi: KurukshetraAbi,
           functionName: 'getLastRoundEndedAt',
-          chainId: 545,
+          chainId: 84532,
         }),
         readContract(rainbowKitConfig, {
           address: arenaAddress as `0x${string}`,
           abi: KurukshetraAbi,
           functionName: 'getDamageOnYodhaOne',
-          chainId: 545,
+          chainId: 84532,
         }),
         readContract(rainbowKitConfig, {
           address: arenaAddress as `0x${string}`,
           abi: KurukshetraAbi,
           functionName: 'getDamageOnYodhaTwo',
-          chainId: 545,
+          chainId: 84532,
         }),
         readContract(rainbowKitConfig, {
           address: arenaAddress as `0x${string}`,
           abi: KurukshetraAbi,
           functionName: 'getBetAmount',
-          chainId: 545,
+          chainId: 84532,
         }),
         readContract(rainbowKitConfig, {
           address: arenaAddress as `0x${string}`,
           abi: KurukshetraAbi,
           functionName: 'getCostToInfluence',
-          chainId: 545,
+          chainId: 84532,
         }),
         readContract(rainbowKitConfig, {
           address: arenaAddress as `0x${string}`,
           abi: KurukshetraAbi,
           functionName: 'getCostToDefluence',
-          chainId: 545,
+          chainId: 84532,
         }),
         readContract(rainbowKitConfig, {
           address: arenaAddress as `0x${string}`,
           abi: KurukshetraAbi,
           functionName: 'getCostToInfluenceYodhaOne',
-          chainId: 545,
+          chainId: 84532,
         }),
         readContract(rainbowKitConfig, {
           address: arenaAddress as `0x${string}`,
           abi: KurukshetraAbi,
           functionName: 'getCostToInfluenceYodhaTwo',
-          chainId: 545,
+          chainId: 84532,
         }),
         readContract(rainbowKitConfig, {
           address: arenaAddress as `0x${string}`,
           abi: KurukshetraAbi,
           functionName: 'getCostToDefluenceYodhaOne',
-          chainId: 545,
+          chainId: 84532,
         }),
         readContract(rainbowKitConfig, {
           address: arenaAddress as `0x${string}`,
           abi: KurukshetraAbi,
           functionName: 'getCostToDefluenceYodhaTwo',
-          chainId: 545,
+          chainId: 84532,
         }),
         readContract(rainbowKitConfig, {
           address: arenaAddress as `0x${string}`,
           abi: KurukshetraAbi,
           functionName: 'getPlayerOneBetAddresses',
-          chainId: 545,
+          chainId: 84532,
         }),
         readContract(rainbowKitConfig, {
           address: arenaAddress as `0x${string}`,
           abi: KurukshetraAbi,
           functionName: 'getPlayerTwoBetAddresses',
-          chainId: 545,
+          chainId: 84532,
         }),
         readContract(rainbowKitConfig, {
           address: arenaAddress as `0x${string}`,
           abi: KurukshetraAbi,
           functionName: 'getMinYodhaBettingPeriod',
-          chainId: 545,
+          chainId: 84532,
         })
       ]);
 
@@ -356,7 +356,7 @@ export const arenaService = {
         abi: KurukshetraAbi,
         functionName: 'betOnYodhaOne',
         args: [BigInt(multiplier)],
-        chainId: 545,
+        chainId: 84532,
       });
 
       return hash;
@@ -376,7 +376,7 @@ export const arenaService = {
         abi: KurukshetraAbi,
         functionName: 'betOnYodhaTwo',
         args: [BigInt(multiplier)],
-        chainId: 545,
+        chainId: 84532,
       });
 
       return hash;
@@ -395,7 +395,7 @@ export const arenaService = {
         address: arenaAddress as `0x${string}`,
         abi: KurukshetraAbi,
         functionName: 'startGame',
-        chainId: 545,
+        chainId: 84532,
       });
 
       return hash;
@@ -414,7 +414,7 @@ export const arenaService = {
         address: arenaAddress as `0x${string}`,
         abi: KurukshetraAbi,
         functionName: 'influenceYodhaOne',
-        chainId: 545,
+        chainId: 84532,
       });
 
       return hash;
@@ -433,7 +433,7 @@ export const arenaService = {
         address: arenaAddress as `0x${string}`,
         abi: KurukshetraAbi,
         functionName: 'influenceYodhaTwo',
-        chainId: 545,
+        chainId: 84532,
       });
 
       return hash;
@@ -452,7 +452,7 @@ export const arenaService = {
         address: arenaAddress as `0x${string}`,
         abi: KurukshetraAbi,
         functionName: 'defluenceYodhaOne',
-        chainId: 545,
+        chainId: 84532,
       });
 
       return hash;
@@ -471,7 +471,7 @@ export const arenaService = {
         address: arenaAddress as `0x${string}`,
         abi: KurukshetraAbi,
         functionName: 'defluenceYodhaTwo',
-        chainId: 545,
+        chainId: 84532,
       });
 
       return hash;
@@ -543,7 +543,7 @@ export const arenaService = {
         address: arenaAddress as `0x${string}`,
         abi: KurukshetraAbi,
         functionName: 'getIsBettingPeriodGoingOn',
-        chainId: 545,
+        chainId: 84532,
       });
 
       return Boolean(isBettingPeriod);
@@ -563,7 +563,7 @@ export const arenaService = {
         address: arenaAddress as `0x${string}`,
         abi: KurukshetraAbi,
         functionName: 'getMinYodhaBettingPeriod',
-        chainId: 545,
+        chainId: 84532,
       });
 
       return Number(minBettingPeriod);
@@ -596,13 +596,13 @@ export const arenaService = {
           address: arenaAddress as `0x${string}`,
           abi: KurukshetraAbi,
           functionName: 'getInitializationStatus',
-          chainId: 545,
+          chainId: 84532,
         }),
         readContract(rainbowKitConfig, {
           address: arenaAddress as `0x${string}`,
           abi: KurukshetraAbi,
           functionName: 'getIsBettingPeriodGoingOn',
-          chainId: 545,
+          chainId: 84532,
         })
       ]);
 
@@ -625,7 +625,7 @@ export const arenaService = {
         address: arenaAddress as `0x${string}`,
         abi: KurukshetraAbi,
         functionName: 'getCurrentRound',
-        chainId: 545,
+        chainId: 84532,
       });
       return Number(result);
     } catch (error) {
@@ -643,7 +643,7 @@ export const arenaService = {
         address: arenaAddress as `0x${string}`,
         abi: KurukshetraAbi,
         functionName: 'getDamageOnYodhaOne',
-        chainId: 545,
+        chainId: 84532,
       });
       return Number(result);
     } catch (error) {
@@ -661,7 +661,7 @@ export const arenaService = {
         address: arenaAddress as `0x${string}`,
         abi: KurukshetraAbi,
         functionName: 'getDamageOnYodhaTwo',
-        chainId: 545,
+        chainId: 84532,
       });
       return Number(result);
     } catch (error) {

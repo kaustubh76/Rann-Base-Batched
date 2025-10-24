@@ -354,7 +354,7 @@ const ChaavaniPage = memo(function ChaavaniPage() {
       console.log('Minting NFT with tokenURI:', tokenURI);
       
       writeContract({
-        address: chainsToTSender[545].yodhaNFT as `0x${string}`,
+        address: chainsToTSender[chainId].yodhaNFT as `0x${string}`,
         abi: yodhaNFTAbi,
         functionName: 'mintNft',
         args: [tokenURI],
@@ -484,7 +484,7 @@ const ChaavaniPage = memo(function ChaavaniPage() {
         console.log("Calling assignTraitsAndMoves on YodhaNFT contract...");
         
         writeContract({
-          address: chainsToTSender[545].yodhaNFT as `0x${string}`,
+          address: chainsToTSender[chainId].yodhaNFT as `0x${string}`,
           abi: yodhaNFTAbi,
           functionName: 'assignTraitsAndMoves',
           args: [
@@ -1068,7 +1068,7 @@ const ChaavaniPage = memo(function ChaavaniPage() {
                         className="text-xs text-blue-200 leading-relaxed"
                         style={{fontFamily: 'Press Start 2P, monospace'}}
                       >
-                        <u>FLOW</u>: Connect wallet through the connect wallet in the header
+                        <u>BASE</u>: Connect wallet through the connect wallet in the header
                       </p>
                       <p 
                         className="text-xs text-blue-200 leading-relaxed"
@@ -1114,7 +1114,7 @@ const ChaavaniPage = memo(function ChaavaniPage() {
                               className="text-xs text-blue-300"
                               style={{fontFamily: 'Press Start 2P, monospace'}}
                             >
-                              SEPARATE FROM FLOW WALLET
+                              SEPARATE FROM BASE WALLET
                             </span>
                           </div>
                           <div className="space-y-2">
@@ -1479,7 +1479,7 @@ const ChaavaniPage = memo(function ChaavaniPage() {
                     className="text-yellow-300 text-xs"
                     style={{fontFamily: 'Press Start 2P, monospace'}}
                   >
-                    CONTRACTS NOT DEPLOYED ON CHAIN {chainId}. PLEASE SWITCH TO FLOW TESTNET (CHAIN 545)
+                    CONTRACTS NOT DEPLOYED ON CHAIN {chainId}. PLEASE SWITCH TO BASE SEPOLIA (CHAIN 84532)
                   </p>
                 </div>
               )}
@@ -1751,7 +1751,7 @@ const ChaavaniPage = memo(function ChaavaniPage() {
                                     className="text-xs text-blue-300"
                                     style={{fontFamily: 'Press Start 2P, monospace'}}
                                   >
-                                    SEPARATE FROM FLOW WALLET
+                                    SEPARATE FROM BASE WALLET
                                   </span>
                                 </div>
                                 <div className="space-y-2">
