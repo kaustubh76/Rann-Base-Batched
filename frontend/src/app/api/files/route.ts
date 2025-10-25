@@ -18,14 +18,18 @@ export async function POST(request: NextRequest) {
     }
 
     // Get file info
-    const fileName = (file as any).name || "uploaded-image.jpg";
+    const fileName = (file as File & { name?: string }).name || "uploaded-image.jpg";
     const fileSize = file.size;
 
     console.log("Uploading file to Pinata:", fileName, "(" + (fileSize / 1024 / 1024).toFixed(2) + " MB)");
 
     // Step 1: Upload image to Pinata IPFS using SDK v3
-    // Pinata SDK v3 accepts Blob directly, no need to convert to File
-    const imageUpload = await pinata.upload.file(file as File);
+    // Convert Blob to Buffer and create a File object
+    const arrayBuffer = await file.arrayBuffer();
+    const buffer = Buffer.from(arrayBuffer);
+    const imageFile = new File([buffer], fileName, { type: file.type });
+
+    const imageUpload = await pinata.upload.public.file(imageFile);
     const imageCid = imageUpload.cid;
     console.log("Image uploaded successfully. CID:", imageCid);
 
@@ -42,7 +46,9 @@ export async function POST(request: NextRequest) {
     console.log("Created metadata JSON:", metadata);
 
     // Step 3: Upload JSON metadata to IPFS using SDK v3
-    const metadataUpload = await pinata.upload.json(metadata);
+    console.log("About to upload JSON metadata...");
+    const metadataUpload = await pinata.upload.public.json(metadata);
+    console.log("JSON upload response:", metadataUpload);
     const metadataCid = metadataUpload.cid;
     console.log("Metadata JSON uploaded successfully. CID:", metadataCid);
 
@@ -70,8 +76,9 @@ export async function POST(request: NextRequest) {
     
   } catch (e) {
     console.error("Error uploading file:", e);
+    const errorMessage = e instanceof Error ? e.message : String(e);
     return NextResponse.json(
-      { error: "Internal Server Error" },
+      { error: errorMessage },
       { status: 500 }
     );
   }
