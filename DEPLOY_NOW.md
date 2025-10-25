@@ -24,7 +24,11 @@ git push origin main
 
 1. Go to [vercel.com/new](https://vercel.com/new)
 2. **Import your GitHub repository**
-3. **IMPORTANT:** Set **Root Directory** to `frontend`
+3. **🚨 CRITICAL:** Click "Edit" next to Root Directory and set it to `frontend`
+   - You'll see a field that says "Root Directory"
+   - Click the "Edit" button next to it
+   - Type `frontend` in the input field
+   - This tells Vercel your Next.js app is in the frontend folder
 4. Click **Deploy**
 
 ### Step 3: Add Environment Variables
